@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="PageSwitcher.Pages.LoginPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PageSwitcher"
+             mc:Ignorable="d" 
+             d:DesignHeight="313" d:DesignWidth="591">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button local:AttachedProperties.Role="User"
+                local:AttachedProperties.Icon="../Icons/ok.png"
+                local:AttachedProperties.RoundedRight="true"
+                Grid.Column="0"
+                Name="buttonUser"
+                Template="{StaticResource marelButton}"
+                Foreground="White" Content="User"
+                Width="100" Height="60"
+                Click="buttonUser_Click"/>
+        <Button local:AttachedProperties.Icon="../Icons/cleaning.png"
+                local:AttachedProperties.Role="Cleaner"
+                local:AttachedProperties.RoundedRight="true"
+                Grid.Column="1"
+                Name="buttonCleaner"
+                Template="{StaticResource marelButton}"
+                Foreground="White"
+                Content="Cleaning"
+                Width="100" Height="60"
+                Click="buttonCleaner_Click">
+        </Button>
+        <Button local:AttachedProperties.Icon="../Icons/adjust.png"
+                local:AttachedProperties.Role="Service"
+                local:AttachedProperties.RoundedRight="true"
+                Grid.Column="2"
+                Name="buttonService"
+                Template="{StaticResource marelButton}"
+                Foreground="White"
+                Content="Service"
+                Width="100" Height="60"
+                Click="buttonService_Click"/>
+        <Button local:AttachedProperties.Icon="../Icons/advanced.png"
+                local:AttachedProperties.Role="Advanced"
+                local:AttachedProperties.RoundedRight="true"
+                Grid.Column="3"
+                Name="buttonAdvanced"
+                Template="{StaticResource marelButton}"
+                Foreground="White"
+                Content="Authorities"
+                Width="100" Height="60"
+                Click="buttonAdvanced_Click"/>
+    </Grid>
+</UserControl>

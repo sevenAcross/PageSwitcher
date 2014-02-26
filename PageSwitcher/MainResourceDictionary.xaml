@@ -1,0 +1,241 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:local="clr-namespace:PageSwitcher"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="MainBackground" Color="#BDBDBD" />
+    <SolidColorBrush x:Key="StatusBackground" Color="#000000" />
+    <SolidColorBrush x:Key="ServiceBackground" Color="#3F3F3F" />
+    <SolidColorBrush x:Key="AdvancedBackground" Color="#919191" />
+    <SolidColorBrush x:Key="AlarmBackground" Color="#C41C24" />
+    <CornerRadius x:Key="EndBorderRadius" BottomLeft="0" TopLeft="0" BottomRight="20" TopRight="20" />
+    <CornerRadius x:Key="FullBorderRadius" BottomLeft="20" TopLeft="20" BottomRight="20" TopRight="20" />
+    <LinearGradientBrush x:Key="UserGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#1B75F5" Offset="0" />
+        <GradientStop Color="#12292B" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="UserDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#143B56" Offset="0" />
+        <GradientStop Color="#000000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="CleanerGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#6BC2BB" Offset="0" />
+        <GradientStop Color="#26557B" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="CleanerDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#2D7BA9" Offset="0" />
+        <GradientStop Color="#000009" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ServiceGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#4D4D4D" Offset="0" />
+        <GradientStop Color="#141414" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ServiceDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#131313" Offset="0" />
+        <GradientStop Color="#000000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AdvancedGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#8F8F8F" Offset="0" />
+        <GradientStop Color="#000000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AdvancedDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#3C3C3C" Offset="0" />
+        <GradientStop Color="#000000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AlarmGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#EC1C24" Offset="0" />
+        <GradientStop Color="#691E2D" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AlarmDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#6A121D" Offset="0" />
+        <GradientStop Color="#19080A" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="WarningOrangeGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#F08C1E" Offset="0" />
+        <GradientStop Color="#7A3A0D" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="WarningOrangeDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#945527" Offset="0" />
+        <GradientStop Color="#190000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="WarningYellowGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FFC800" Offset="0" />
+        <GradientStop Color="#7D4500" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="WarningYellowDownGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#B38D30" Offset="0" />
+        <GradientStop Color="#271C00" Offset="1" />
+    </LinearGradientBrush>
+
+    <ControlTemplate x:Key="marelButton">
+        <Grid x:Name="buttonGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="20*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border x:Name="buttonBorder"
+                    Background="{StaticResource ServiceGradient}"
+                    BorderThickness="1,0,0,0"/>
+            <Image Grid.Row="0"
+                       Margin="5"
+                       Source="{Binding Path=(local:AttachedProperties.Icon), RelativeSource={RelativeSource TemplatedParent}}" />
+            <ContentPresenter Grid.Row="1" Margin="0,2,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  Content="{TemplateBinding Property=ContentControl.Content}" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <!-- Apply rounded corners on the right of the button if required -->
+            <DataTrigger Binding="{Binding Path=(local:AttachedProperties.RoundedRight), RelativeSource={RelativeSource Self}}" Value="true">
+                <Setter TargetName="buttonBorder" Property="CornerRadius" Value="{StaticResource EndBorderRadius}" />
+            </DataTrigger>
+            
+            <!-- Apply gradient colouring for a User role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="User" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource UserDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="User" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource UserGradient}" />
+            </MultiDataTrigger>
+
+            <!-- Apply gradient colouring for a Cleaner role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Cleaner" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CleanerDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Cleaner" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CleanerGradient}" />
+            </MultiDataTrigger>
+
+            <!-- Apply gradient colouring for a Service role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Service" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource ServiceDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Service" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource ServiceGradient}" />
+            </MultiDataTrigger>
+
+            <!-- Apply gradient colouring for Advanced role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Advanced" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource AdvancedDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Advanced" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource AdvancedGradient}" />
+            </MultiDataTrigger>
+
+            <!-- Apply gradient colouring for Alarm role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Alarm" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource AlarmDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Alarm" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource AlarmGradient}" />
+            </MultiDataTrigger>
+
+            <!-- Apply gradient colouring for WarningOrange role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="WarningOrange" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource WarningOrangeDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="WarningOrange" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource WarningOrangeGradient}" />
+            </MultiDataTrigger>
+
+            <!-- Apply gradient colouring for WarningYellow role -->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="WarningYellow" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource WarningYellowDownGradient}" />
+                <Setter TargetName="buttonGrid" Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
+                    </Setter.Value>
+                </Setter>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
+                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="WarningYellow" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource WarningYellowGradient}" />
+            </MultiDataTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+</ResourceDictionary>
