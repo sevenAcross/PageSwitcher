@@ -89,81 +89,81 @@
             </DataTrigger>
             
             <!-- Apply gradient colouring for a User role -->
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="User" />
-                </MultiDataTrigger.Conditions>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="true" />
+                    <Condition Property="local:AttachedProperties.Role" Value="User" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource UserDownGradient}" />
                 <Setter TargetName="buttonGrid" Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
                     </Setter.Value>
                 </Setter>
-            </MultiDataTrigger>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="User" />
-                </MultiDataTrigger.Conditions>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="false" />
+                    <Condition Property="local:AttachedProperties.Role" Value="User" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource UserGradient}" />
-            </MultiDataTrigger>
+            </MultiTrigger>
 
             <!-- Apply gradient colouring for a Cleaner role -->
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Cleaner" />
-                </MultiDataTrigger.Conditions>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="true" />
+                    <Condition Property="local:AttachedProperties.Role" Value="Cleaner" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CleanerDownGradient}" />
                 <Setter TargetName="buttonGrid" Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
                     </Setter.Value>
                 </Setter>
-            </MultiDataTrigger>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Cleaner" />
-                </MultiDataTrigger.Conditions>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="false" />
+                    <Condition Property="local:AttachedProperties.Role" Value="Cleaner" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CleanerGradient}" />
-            </MultiDataTrigger>
+            </MultiTrigger>
 
             <!-- Apply gradient colouring for a Service role -->
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Service" />
-                </MultiDataTrigger.Conditions>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="true" />
+                    <Condition Property="local:AttachedProperties.Role" Value="Service" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource ServiceDownGradient}" />
                 <Setter TargetName="buttonGrid" Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
                     </Setter.Value>
                 </Setter>
-            </MultiDataTrigger>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Service" />
-                </MultiDataTrigger.Conditions>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="false" />
+                    <Condition Property="local:AttachedProperties.Role" Value="Service" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource ServiceGradient}" />
-            </MultiDataTrigger>
+            </MultiTrigger>
 
             <!-- Apply gradient colouring for Advanced role -->
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="true" />
-                    <Condition Binding="{Binding Path=(local:AttachedProperties.Role), RelativeSource={RelativeSource Self}}" Value="Advanced" />
-                </MultiDataTrigger.Conditions>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsPressed" Value="true" />
+                    <Condition Property="local:AttachedProperties.Role" Value="Advanced" />
+                </MultiTrigger.Conditions>
                 <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource AdvancedDownGradient}" />
                 <Setter TargetName="buttonGrid" Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="1" />
                     </Setter.Value>
                 </Setter>
-            </MultiDataTrigger>
+            </MultiTrigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" Value="false" />

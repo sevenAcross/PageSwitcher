@@ -72,22 +72,26 @@ namespace PageSwitcher
         static AttachedProperties ()
         {
             // Register the attached dependency properties
-            var metadata = new FrameworkPropertyMetadata ( (ImageSource) null );
             IconProperty = DependencyProperty.RegisterAttached (
                 "Icon",
                 typeof ( ImageSource ),
                 typeof ( AttachedProperties ),
-                metadata
+                new FrameworkPropertyMetadata ( (ImageSource) null )
                 );
 
-            metadata = new FrameworkPropertyMetadata ( (String) null );
+            var metadata = new FrameworkPropertyMetadata (
+               default ( Role ),
+               FrameworkPropertyMetadataOptions.AffectsRender
+               );
+            metadata.Inherits = true;
             RoleProperty = DependencyProperty.RegisterAttached (
                 "Role",
                 typeof ( Role ),
                 typeof ( AttachedProperties ),
-                new PropertyMetadata ( default ( Role ) )
+                metadata
                 );
 
+            
             RoundedRightProperty = DependencyProperty.RegisterAttached (
                 "RoundedRight",
                 typeof ( bool ),
