@@ -34,25 +34,22 @@ namespace PageSwitcher.Pages
 
         private void buttonUser_Click ( object sender, RoutedEventArgs e )
         {
-            Switcher.Switch ( new UserMainPage () );
+            Switcher.Switch ( new ServiceMainPage (), Role.User );
         }
 
         private void buttonCleaner_Click ( object sender, RoutedEventArgs e )
         {
-
+            Switcher.Switch ( new ServiceMainPage (), Role.Cleaner );
         }
 
         private void buttonService_Click ( object sender, RoutedEventArgs e )
         {
-            ServiceMainPage page = new ServiceMainPage ();
-            Switcher.Switch ( page );
-            page.SetValue ( AttachedProperties.RoleProperty, Role.Service );
-
+            Switcher.Switch ( new ServiceMainPage (), Role.Service );
         }
 
         private void buttonAdvanced_Click ( object sender, RoutedEventArgs e )
         {
-
+            Switcher.Switch ( new ServiceMainPage (), Role.Advanced );
         }
     }
 }

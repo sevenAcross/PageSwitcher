@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace Scratchpad
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginPage : UserControl
     {
-        public MainWindow ()
+        public LoginPage ()
         {
             InitializeComponent ();
-
-            LoginPage page = new LoginPage ();
-            pageHolder.SetValue ( CustomProperties.RoleProperty, "Service" );
-            pageHolder.Child = page;
         }
     }
 }

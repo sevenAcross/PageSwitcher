@@ -4,6 +4,8 @@
         xmlns:local="clr-namespace:PageSwitcher"
         Title="MainWindow" Height="419.162" Width="647.605">
     <Window.Resources>
+        <local:PageHolderWidthAdjustment x:Key="pageHolderWidthAdjustment" />
+        <Thickness x:Key="borderMargin">5</Thickness>
     </Window.Resources>
     <DockPanel Name="dockPanel" Background="{StaticResource MainBackground}" LastChildFill="False">
         <Border Background="{StaticResource StatusBackground}"
@@ -55,13 +57,32 @@
             </DockPanel>
         </Border>
         <Border Name="pageHolder"
+                Margin="{StaticResource borderMargin}"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
-                Width="{Binding Path=ActualWidth, ElementName=dockPanel}"
+                Width="{Binding Path=ActualWidth, ElementName=dockPanel, Converter={StaticResource pageHolderWidthAdjustment}, ConverterParameter={StaticResource borderMargin}}"
                 CornerRadius="20" Background="{StaticResource MainBackground}"
                 Padding="5"
                 >
-            <Rectangle Fill="Aquamarine" Height="20"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="local:AttachedProperties.Role" Value="{x:Static local:Role.User}">
+                            <Setter Property="Background" Value="{StaticResource MainBackground}" />
+                        </Trigger>
+                        <Trigger Property="local:AttachedProperties.Role" Value="{x:Static local:Role.Cleaner}">
+                            <Setter Property="Background" Value="{StaticResource CleanerBackground}" />
+                        </Trigger>
+                        <Trigger Property="local:AttachedProperties.Role" Value="{x:Static local:Role.Service}">
+                            <Setter Property="Background" Value="{StaticResource ServiceBackground}" />
+                        </Trigger>
+                        <Trigger Property="local:AttachedProperties.Role" Value="{x:Static local:Role.Advanced}">
+                            <Setter Property="Background" Value="{StaticResource AdvancedBackground}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Resources>
+
         </Border>
     </DockPanel>
 </Window>

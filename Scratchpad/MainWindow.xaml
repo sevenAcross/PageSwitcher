@@ -1,9 +1,12 @@
 ﻿<Window x:Class="Scratchpad.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
         xmlns:local="clr-namespace:Scratchpad"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
+        <local:PageHolderWidthAdjustment x:Key="pageHolderWidthAdjustment" />
+        <Thickness x:Key="borderMargin">5</Thickness>
         <ControlTemplate x:Key="marelButton">
             <Grid>
                 <Ellipse Name="elipse"></Ellipse>
@@ -25,7 +28,28 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Grid local:CustomProperties.Role="Service">
-        <Button Template="{StaticResource marelButton}" >Fred</Button>
-    </Grid>
+    <DockPanel Name="dockPanel" LastChildFill="False">
+        <Border DockPanel.Dock="Top">
+            <Label>Status Bar</Label>    
+        </Border>
+        <Border DockPanel.Dock="Bottom">
+            <Label>Navigation Bar</Label>
+        </Border>
+        <Border Name="pageHolder" Margin="{StaticResource borderMargin}"
+                CornerRadius="20"
+                Padding="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Width="{Binding Path=ActualWidth, ElementName=dockPanel, Converter={StaticResource pageHolderWidthAdjustment}, ConverterParameter={StaticResource borderMargin}}">
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="local:CustomProperties.Role" Value="Service">
+                            <Setter Property="Background" Value="Green" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Resources>
+        </Border>
+    </DockPanel>
 </Window>

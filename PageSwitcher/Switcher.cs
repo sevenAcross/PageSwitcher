@@ -11,8 +11,9 @@ namespace PageSwitcher
     {
         public static MainWindow mainWindow;
 
-        public static void Switch ( UserControl newPage )
+        public static void Switch ( UserControl newPage, Role role )
         {
+            mainWindow.pageHolder.SetValue ( AttachedProperties.RoleProperty, role );
             mainWindow.Navigate ( newPage );
         }
 

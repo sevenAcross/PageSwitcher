@@ -2,6 +2,7 @@
                     xmlns:local="clr-namespace:PageSwitcher"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="MainBackground" Color="#BDBDBD" />
+    <SolidColorBrush x:Key="CleanerBackground" Color="#58AFE2" />
     <SolidColorBrush x:Key="StatusBackground" Color="#000000" />
     <SolidColorBrush x:Key="ServiceBackground" Color="#3F3F3F" />
     <SolidColorBrush x:Key="AdvancedBackground" Color="#919191" />

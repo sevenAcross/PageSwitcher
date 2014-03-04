@@ -8,19 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Border CornerRadius="20"
             Padding="10">
-        <Border.Style>
-            <Style x:Name="xx" TargetType="{x:Type Border}">
-                <Style.Triggers>
-            <DataTrigger
-                Binding="{Binding Path=(local:AttachedProperties.Role),
-                RelativeSource={RelativeSource AncestorType={x:Type UserControl} }}"
-                Value="Service">
-                <Setter Property="Background" Value="{StaticResource ServiceBackground}" />
-            </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </Border.Style>
-        <Grid local:AttachedProperties.Role="Service">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="5*"></RowDefinition>
@@ -29,43 +17,33 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
             <Label Foreground="White">Service</Label>
         <Button local:AttachedProperties.Icon="../Icons/ok.png"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="0" Grid.Row="1"
-                Name="buttonUser"
+                Name="buttonSetup"
                 Template="{StaticResource marelButton}"
-                Foreground="White" Content="User"
+                Foreground="White" Content="Setup"
                 Width="100" Height="60"
                 />
         <Button local:AttachedProperties.Icon="../Icons/cleaning.png"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="1" Grid.Row="1"
-                Name="buttonCleaner"
+                Name="buttonCalibration"
                 Template="{StaticResource marelButton}"
                 Foreground="White"
-                Content="Cleaning"
+                Content="Calibration"
                 Width="100" Height="60"
                 >
         </Button>
         <Button local:AttachedProperties.Icon="../Icons/adjust.png"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="2" Grid.Row="1"
-                Name="buttonService"
+                Name="buttonTesting"
                 Template="{StaticResource marelButton}"
                 Foreground="White"
-                Content="Service"
-                Width="100" Height="60"
-                />
-        <Button local:AttachedProperties.Icon="../Icons/advanced.png"
-                local:AttachedProperties.RoundedRight="true"
-                Grid.Column="3" Grid.Row="1"
-                Name="buttonAdvanced"
-                Template="{StaticResource marelButton}"
-                Foreground="White"
-                Content="Authorities"
+                Content="Testing"
                 Width="100" Height="60"
                 />
     </Grid>

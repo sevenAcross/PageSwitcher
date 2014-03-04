@@ -8,13 +8,7 @@
              d:DesignHeight="313" d:DesignWidth="591">
     <UserControl.Resources>
     </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <UniformGrid Rows="1">
         <Button local:AttachedProperties.Role="User"
                 local:AttachedProperties.Icon="../Icons/ok.png"
                 local:AttachedProperties.RoundedRight="true"
@@ -55,5 +49,5 @@
                 Content="Authorities"
                 Width="100" Height="60"
                 Click="buttonAdvanced_Click"/>
-    </Grid>
+    </UniformGrid>
 </UserControl>
