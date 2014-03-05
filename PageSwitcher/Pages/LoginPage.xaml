@@ -10,12 +10,12 @@
     </UserControl.Resources>
     <UniformGrid Rows="1">
         <Button local:AttachedProperties.Role="User"
-                local:AttachedProperties.Icon="../Icons/ok.png"
+                local:AttachedProperties.Icon="../Icons/production.png"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="0"
                 Name="buttonUser"
                 Template="{StaticResource marelButton}"
-                Foreground="White" Content="User"
+                Foreground="White" Content="Production"
                 Width="100" Height="60"
                 Click="buttonUser_Click"/>
         <Button local:AttachedProperties.Icon="../Icons/cleaning.png"
@@ -29,7 +29,7 @@
                 Width="100" Height="60"
                 Click="buttonCleaner_Click">
         </Button>
-        <Button local:AttachedProperties.Icon="../Icons/adjust.png"
+        <Button local:AttachedProperties.Icon="../Icons/serviceLocked.png"
                 local:AttachedProperties.Role="Service"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="2"
@@ -39,7 +39,7 @@
                 Content="Service"
                 Width="100" Height="60"
                 Click="buttonService_Click"/>
-        <Button local:AttachedProperties.Icon="../Icons/advanced.png"
+        <Button local:AttachedProperties.Icon="../Icons/authoritiesLocked.png"
                 local:AttachedProperties.Role="Advanced"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="3"

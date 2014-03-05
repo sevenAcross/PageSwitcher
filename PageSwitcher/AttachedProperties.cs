@@ -16,7 +16,8 @@ namespace PageSwitcher
         Advanced,
         Alarm,
         WarningOrange,
-        WarningYellow
+        WarningYellow,
+        Login
     };
 
     public class AttachedProperties

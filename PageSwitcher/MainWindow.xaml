@@ -61,8 +61,8 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
                 Width="{Binding Path=ActualWidth, ElementName=dockPanel, Converter={StaticResource pageHolderWidthAdjustment}, ConverterParameter={StaticResource borderMargin}}"
-                CornerRadius="20" Background="{StaticResource MainBackground}"
-                Padding="5"
+                CornerRadius="20"
+                Padding="15"
                 >
             <Border.Resources>
                 <Style TargetType="Border">
@@ -78,6 +78,9 @@
                         </Trigger>
                         <Trigger Property="local:AttachedProperties.Role" Value="{x:Static local:Role.Advanced}">
                             <Setter Property="Background" Value="{StaticResource AdvancedBackground}" />
+                        </Trigger>
+                        <Trigger Property="local:AttachedProperties.Role" Value="{x:Static local:Role.Alarm}">
+                            <Setter Property="Background" Value="{StaticResource AlarmBackground}" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>

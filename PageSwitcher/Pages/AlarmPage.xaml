@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="PageSwitcher.Pages.AlarmPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PageSwitcher"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel Height="200" Grid.Column="0" Grid.Row="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Image VerticalAlignment="Top" Source="../Icons/alarm.png" Height="40" />
+                <Label VerticalAlignment="Top" Foreground="White">Alarms and Warnings</Label>
+            </StackPanel>
+        </DockPanel>
+        <Border Grid.Column="1" Grid.Row="0">
+            <ListView Foreground="White" Margin="10" Background="Black">
+                <ListBoxItem Content="1 No Weigh Samples"/>
+                <ListBoxItem Content="2 Start Stop Configuration Error"/>
+            </ListView>
+        </Border>
+        <DockPanel Height="200" Grid.Column="0" Grid.Row="1">
+            <Border DockPanel.Dock="Bottom">
+                <Button Template="{StaticResource marelButton}"
+                        local:AttachedProperties.Icon="../Icons/alarmLog.png"
+                        local:AttachedProperties.RoundedRight="true"
+                        Content="Alarm Log"
+                        Foreground="White"
+                        Width="60" Height="40"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"/>
+            </Border>
+        </DockPanel>
+        <Border Grid.Column="1" Grid.Row="1">
+            <ListView Margin="10" Background="Black"></ListView>
+        </Border>
+    </Grid>
+</UserControl>

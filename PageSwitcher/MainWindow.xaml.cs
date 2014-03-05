@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace PageSwitcher
 {
@@ -13,7 +15,7 @@ namespace PageSwitcher
         {
             InitializeComponent ();
             Switcher.mainWindow = this;
-            Switcher.Switch ( new Pages.LoginPage (), Role.User );
+            Switcher.Switch ( new Pages.LoginPage (), Role.Login );
         }
 
         internal void Navigate ( UserControl newPage )
@@ -34,7 +36,7 @@ namespace PageSwitcher
 
         private void buttonLogin_Click ( object sender, RoutedEventArgs e )
         {
-            Switcher.Switch ( new Pages.LoginPage (), Role.User );
+            Switcher.Switch ( new Pages.LoginPage (), Role.Login );
         }
 
         private void buttonLanguage_Click ( object sender, RoutedEventArgs e )
@@ -44,12 +46,12 @@ namespace PageSwitcher
 
         private void buttonAlarms_Click ( object sender, RoutedEventArgs e )
         {
-
+            Switcher.Switch ( new Pages.AlarmPage (), Role.Alarm );
         }
 
         private void buttonInfo_Click ( object sender, RoutedEventArgs e )
         {
-
+            Switcher.InfoButtonAction ();
         }
     }
 }

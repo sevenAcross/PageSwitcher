@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="AttachedProperties.cs" />
     <Compile Include="Converters.cs" />
+    <Compile Include="Pages\AlarmPage.xaml.cs">
+      <DependentUpon>AlarmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ServiceMainPage.xaml.cs">
       <DependentUpon>ServiceMainPage.xaml</DependentUpon>
     </Compile>
@@ -64,10 +67,6 @@
       <DependentUpon>UserMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Switcher.cs" />
-    <Page Include="Icons\1_General_Cleaning.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +84,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AlarmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,172 +134,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\1204-Credentials-Lock.png" />
-    <Content Include="Icons\1_Adjustment_Acknowledge.svg" />
-    <Content Include="Icons\1_Adjustment_Adjust.svg" />
-    <Content Include="Icons\1_Adjustment_Delete.svg" />
-    <Content Include="Icons\1_Adjustment_Initialize.svg" />
-    <Content Include="Icons\1_Adjustment_Progress.svg" />
-    <Content Include="Icons\1_Adjustment_Reset.svg" />
-    <Content Include="Icons\1_Adjustment_Setup.svg" />
-    <Content Include="Icons\1_Adjustment_Start_Active.svg" />
-    <Content Include="Icons\1_Adjustment_Stop_Active.svg" />
-    <Content Include="Icons\1_Adjustment_Value_Decrease.svg" />
-    <Content Include="Icons\1_Adjustment_Value_Increase.svg" />
-    <Content Include="Icons\1_General_Admin.svg" />
-    <Content Include="Icons\1_General_Advanced.svg" />
-    <Content Include="Icons\1_General_Advanced_Locked.svg" />
-    <Content Include="Icons\1_General_Alarm.svg" />
-    <Content Include="Icons\1_General_Alarm_Log.svg" />
-    <Content Include="Icons\1_General_Authorities.svg" />
-    <Content Include="Icons\1_General_Authorities_Locked.svg" />
-    <Content Include="Icons\1_General_Backup.svg" />
-    <Content Include="Icons\1_General_Cleaning.svg" />
-    <Content Include="Icons\1_General_Cleaning_Locked.svg" />
-    <Content Include="Icons\1_General_Cleaning_Program.svg" />
-    <Content Include="Icons\1_General_ConveyorBelt_Pause.svg" />
-    <Content Include="Icons\1_General_ConveyorBelt_Start.svg" />
-    <Content Include="Icons\1_General_Copy_Program.svg" />
-    <Content Include="Icons\1_General_Cut_Unit.svg" />
-    <Content Include="Icons\1_General_Delete_Program.svg" />
-    <Content Include="Icons\1_General_Edit_Program.svg" />
-    <Content Include="Icons\1_General_Info.svg" />
-    <Content Include="Icons\1_General_Language.svg" />
-    <Content Include="Icons\1_General_Locked.svg" />
-    <Content Include="Icons\1_General_Locked_Advanced.svg" />
-    <Content Include="Icons\1_General_New_Program.svg" />
-    <Content Include="Icons\1_General_Number_Input.svg" />
-    <Content Include="Icons\1_General_Production.svg" />
-    <Content Include="Icons\1_General_Production_Locked.svg" />
-    <Content Include="Icons\1_General_Reports.svg" />
-    <Content Include="Icons\1_General_Restore.svg" />
-    <Content Include="Icons\1_General_Save.svg" />
-    <Content Include="Icons\1_General_SaveAs.svg" />
-    <Content Include="Icons\1_General_Service.svg" />
-    <Content Include="Icons\1_General_Service_Locked.svg" />
-    <Content Include="Icons\1_General_Setup_Advanced.svg" />
-    <Content Include="Icons\1_General_Setup_Wizard.svg" />
-    <Content Include="Icons\1_General_Speed.svg" />
-    <Content Include="Icons\1_General_Statistics.svg" />
-    <Content Include="Icons\1_General_Status.svg" />
-    <Content Include="Icons\1_General_Status_Advanced.svg" />
-    <Content Include="Icons\1_General_Text_Input.svg" />
-    <Content Include="Icons\1_General_Time.svg" />
-    <Content Include="Icons\1_General_Vision_Unit.svg" />
-    <Content Include="Icons\1_General_Weight.svg" />
-    <Content Include="Icons\1_General_Weight_Max_Limit.svg" />
-    <Content Include="Icons\1_General_Weight_Min_Limit.svg" />
-    <Content Include="Icons\1_General_Weight_Reset.svg" />
-    <Content Include="Icons\1_Navigation_Back_Cancel.svg" />
-    <Content Include="Icons\1_Navigation_Back_To_Login.svg" />
-    <Content Include="Icons\1_Navigation_Forward.svg" />
-    <Content Include="Icons\1_Navigation_Login.svg" />
-    <Content Include="Icons\1_Navigation_Previous.svg" />
-    <Content Include="Icons\1_Navigation_Scroll_Down.svg" />
-    <Content Include="Icons\1_Navigation_Scroll_Up.svg" />
-    <Content Include="Icons\2_End_Line_Bitmaps_Images.svg" />
-    <Content Include="Icons\2_End_Line_Can_Motor.svg" />
-    <Content Include="Icons\2_End_Line_Font_Edit.svg" />
-    <Content Include="Icons\2_End_Line_Pan.svg" />
-    <Content Include="Icons\2_End_Line_Program.svg" />
-    <Content Include="Icons\2_End_Line_Program_Setup.svg" />
-    <Content Include="Icons\2_Further_Processing_Additives.svg" />
-    <Content Include="Icons\2_Further_Processing_Air.svg" />
-    <Content Include="Icons\2_Further_Processing_Batch_Intake.svg" />
-    <Content Include="Icons\2_Further_Processing_BeltWasher_Run.svg" />
-    <Content Include="Icons\2_Further_Processing_Belt_Run.svg" />
-    <Content Include="Icons\2_Further_Processing_Belt_Speed_Loading.svg" />
-    <Content Include="Icons\2_Further_Processing_Belt_Speed_Unloading.svg" />
-    <Content Include="Icons\2_Further_Processing_BinWithLiquid.svg" />
-    <Content Include="Icons\2_Further_Processing_BinWithLiquid_2.svg" />
-    <Content Include="Icons\2_Further_Processing_CIP_Tank_Drain.svg" />
-    <Content Include="Icons\2_Further_Processing_Cleaning_Manual.svg" />
-    <Content Include="Icons\2_Further_Processing_Drum.svg" />
-    <Content Include="Icons\2_Further_Processing_Drum_Out.svg" />
-    <Content Include="Icons\2_Further_Processing_Heating.svg" />
-    <Content Include="Icons\2_Further_Processing_Hood_Down.svg" />
-    <Content Include="Icons\2_Further_Processing_Hood_Up.svg" />
-    <Content Include="Icons\2_Further_Processing_Humidity.svg" />
-    <Content Include="Icons\2_Further_Processing_Recipe.svg" />
-    <Content Include="Icons\2_Further_Processing_Recipe_Setup.svg" />
-    <Content Include="Icons\2_Further_Processing_Soak_Section_Fill.svg" />
-    <Content Include="Icons\2_Further_Processing_Sprayer.svg" />
-    <Content Include="Icons\2_Further_Processing_Sprayer_2.svg" />
-    <Content Include="Icons\2_Further_Processing_Temperature.svg" />
-    <Content Include="Icons\2_Further_Processing_Valve.svg" />
-    <Content Include="Icons\2_Grading_Batching_Average_Weight.svg" />
-    <Content Include="Icons\2_Grading_Batching_Calibrate_Weight.svg" />
-    <Content Include="Icons\2_Grading_Batching_Center_Vibrator_Intensity.svg" />
-    <Content Include="Icons\2_Grading_Batching_Cone.svg" />
-    <Content Include="Icons\2_Grading_Batching_Cone_Turning_Time.svg" />
-    <Content Include="Icons\2_Grading_Batching_Cone_Turning_Time_Left.svg" />
-    <Content Include="Icons\2_Grading_Batching_Cone_Turning_Time_Right.svg" />
-    <Content Include="Icons\2_Grading_Batching_Delay_Of_Next_Drop.svg" />
-    <Content Include="Icons\2_Grading_Batching_Fall_Time_To_Gates.svg" />
-    <Content Include="Icons\2_Grading_Batching_Head Disable.svg" />
-    <Content Include="Icons\2_Grading_Batching_Head_Enable.svg" />
-    <Content Include="Icons\2_Grading_Batching_Head_Linestate.svg" />
-    <Content Include="Icons\2_Grading_Batching_Histogram_Drop.svg" />
-    <Content Include="Icons\2_Grading_Batching_Histogram_Head.svg" />
-    <Content Include="Icons\2_Grading_Batching_Histogram_Reject.svg" />
-    <Content Include="Icons\2_Grading_Batching_Hopper_Reset_Interval.svg" />
-    <Content Include="Icons\2_Grading_Batching_Hopper_Reset_Limit.svg" />
-    <Content Include="Icons\2_Grading_Batching_Infeed_Start.svg" />
-    <Content Include="Icons\2_Grading_Batching_Infeed_Start_Delay.svg" />
-    <Content Include="Icons\2_Grading_Batching_Infeed_Stop.svg" />
-    <Content Include="Icons\2_Grading_Batching_Infeed_Stop_Delay.svg" />
-    <Content Include="Icons\2_Grading_Batching_Max_Drops_Per_Minute.svg" />
-    <Content Include="Icons\2_Grading_Batching_Max_Vibrator_Time.svg" />
-    <Content Include="Icons\2_Grading_Batching_Multidrop.svg" />
-    <Content Include="Icons\2_Grading_Batching_Number_of_Heads.svg" />
-    <Content Include="Icons\2_Grading_Batching_Openening_Time_Of_Gates.svg" />
-    <Content Include="Icons\2_Grading_Batching_Profile_Settings.svg" />
-    <Content Include="Icons\2_Grading_Batching_Program.svg" />
-    <Content Include="Icons\2_Grading_Batching_Program_Setup.svg" />
-    <Content Include="Icons\2_Grading_Batching_Storage_Hopper_Speed.svg" />
-    <Content Include="Icons\2_Grading_Batching_Target_Weight.svg" />
-    <Content Include="Icons\2_Grading_Batching_Vibrator_Adjust.svg" />
-    <Content Include="Icons\2_Grading_Batching_Vibrator_Auto.svg" />
-    <Content Include="Icons\2_Grading_Batching_Vibrator_Start.svg" />
-    <Content Include="Icons\2_Grading_Batching_Vibrator_Stop.svg" />
-    <Content Include="Icons\2_Inspection_Program.svg" />
-    <Content Include="Icons\2_Inspection_Program_Setup.svg" />
-    <Content Include="Icons\2_Salmon_Cut_Angle.svg" />
-    <Content Include="Icons\2_Salmon_Cut_Head_Length.svg" />
-    <Content Include="Icons\2_Salmon_Cut_Head_Tail.svg" />
-    <Content Include="Icons\2_Salmon_Cut_Head_Width.svg" />
-    <Content Include="Icons\2_Salmon_Cut_Tail_Length.svg" />
-    <Content Include="Icons\2_Salmon_Cut_Tail_Width.svg" />
-    <Content Include="Icons\2_Salmon_Head.svg" />
-    <Content Include="Icons\2_Salmon_HeadTail.svg" />
-    <Content Include="Icons\2_Salmon_Ingredient.svg" />
-    <Content Include="Icons\2_Salmon_Ingridient_Length.svg" />
-    <Content Include="Icons\2_Salmon_Ingridient_Setup.svg" />
-    <Content Include="Icons\2_Salmon_ITM_Program.svg" />
-    <Content Include="Icons\2_Salmon_ITM_Program_Setup.svg" />
-    <Content Include="Icons\2_Salmon_Output_Principle.svg" />
-    <Content Include="Icons\2_Salmon_Pattern_Trim.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Bad_Slices.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Distance.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Length.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Position_Slices.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Rows.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Slices.svg" />
-    <Content Include="Icons\2_Salmon_Plate_Weight.svg" />
-    <Content Include="Icons\2_Salmon_Product.svg" />
-    <Content Include="Icons\2_Salmon_Product_Setup.svg" />
-    <Content Include="Icons\2_Salmon_Product_Setup_Advanced.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Length_Max.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Length_Min.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Thickness.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Weight.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Weight_Max.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Weight_min.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Width_Max.svg" />
-    <Content Include="Icons\2_Salmon_Slice_Width_Min.svg" />
-    <Content Include="Icons\2_Salmon_Tail.svg" />
-    <Content Include="Icons\2_Salmon_Zone_Length_End.svg" />
-    <Content Include="Icons\2_Salmon_Zone_Length_Start.svg" />
     <Resource Include="Icons\additives.png" />
     <Resource Include="Icons\adjust.png" />
     <Resource Include="Icons\admin.png" />
@@ -357,6 +194,13 @@
     <Resource Include="Icons\stop.png" />
     <Resource Include="Icons\up.png" />
     <Resource Include="Icons\xray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\authoritiesLocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\alarmLog.png" />
+    <Resource Include="Icons\production.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

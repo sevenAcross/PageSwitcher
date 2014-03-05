@@ -6,8 +6,6 @@
              xmlns:local="clr-namespace:PageSwitcher"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Border CornerRadius="20"
-            Padding="10">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -18,7 +16,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-            <Label Foreground="White">Service</Label>
+            <Label Foreground="White" FontWeight="Bold">Service</Label>
         <Button local:AttachedProperties.Icon="../Icons/ok.png"
                 local:AttachedProperties.RoundedRight="true"
                 Grid.Column="0" Grid.Row="1"
@@ -47,5 +45,4 @@
                 Width="100" Height="60"
                 />
     </Grid>
-    </Border>
 </UserControl>
